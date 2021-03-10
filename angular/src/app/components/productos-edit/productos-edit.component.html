@@ -1,0 +1,22 @@
+<form (ngSubmit)="updateProductos()">
+    <div class="form-group">
+      <label for="name">nombre</label>
+      <input type="text" name="name" class="form-control" [(ngModel)]="productoss.nombre">
+    </div>
+    <div class="form-group">
+      <label for="last_name">detalle</label>
+      <input type="text" name="last_name" class="form-control" [(ngModel)]="productoss.detalle">
+    </div>
+    
+    <div class="form-group">
+      <label for="identification">precio</label>
+      <input type="text" name="identification" class="form-control" [(ngModel)]="productoss.precio">
+    </div>
+    
+    
+    
+    <button class="btn btn-dark btn-sm mt-4">Actualizar</button>
+    <td><button class="btn btn-danger" routerLink="/productos">regresar</button></td>
+
+  </form>
+  

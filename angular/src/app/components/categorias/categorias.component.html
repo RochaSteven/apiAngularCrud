@@ -1,0 +1,23 @@
+<form (ngSubmit)="addData()">
+    <div class="form-group">
+      <label for="name">nombre</label>
+      <input type="text" name="name" class="form-control" [(ngModel)]="categorias.nombre_categoria">
+    </div>
+    <br>
+    <button class="btn btn-dark btn-sm mt-4">Registrar</button>
+  </form>
+  <table class="table">
+       <thead>
+         <tr>
+          <th scope="col">id</th>
+           <th scope="col">nombre de categoría</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let categoria of categoria">
+          <th scope="row">{{categoria.id}}</th>
+           <th scope="row">{{categoria.nombre_categoria}}</th>
+           <td><button class="btn btn-danger" (click)="deleteData(categoria.id)">Eliminar</button></td>
+           <td><button class="btn btn-primary" routerLink="edit/{{categoria.id}}">Editar</button></td>
+         </tbody>
+       </table>

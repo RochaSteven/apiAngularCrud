@@ -1,0 +1,53 @@
+<form (ngSubmit)="insertData()">
+  <div class="form-group">
+    <label for="name">nombre</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="productoss.nombre">
+  </div>
+  <div class="form-group">
+    <label for="last_name">detalle</label>
+    <input type="text" name="last_name" class="form-control" [(ngModel)]="productoss.detalle">
+  </div>
+  
+  <div class="form-group">
+    <label for="identification">precio</label>
+    <input type="text" name="identification" class="form-control" [(ngModel)]="productoss.precio">
+  </div >
+  <div class="form-group">
+    <label for="identification">categoria</label>
+    <select type="text" name="identification" class="form-control" [(ngModel)]="productoss.categoria_id">
+      <option *ngFor="let categoria of categoria" value={{categoria.id}}>{{categoria.nombre_categoria}}</option>
+    </select>
+  </div >
+ 
+  <br>
+  
+  
+  <button class="btn btn-dark btn-sm mt-4">Registrar</button>
+</form>
+
+<table class="table">
+     <thead>
+       <tr>
+        <th scope="col">id</th>
+
+         <th scope="col">nombre</th>
+         <th scope="col">detalle</th>
+         <th scope="col">precio</th>
+         <th scope="col">categoria</th>
+         <th scope="col">Acción</th>
+         
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="let productos of productos">
+        <th scope="row">{{productos.id}}</th>
+         <th scope="row">{{productos.nombre}}</th>
+         <td  scope="row"> {{productos.detalle}}</td>
+         <td  scope="row">{{productos.precio}}</td>
+         <td  scope="row">{{productos.categoria_id}}</td>
+         
+         
+         <td><button class="btn btn-danger" (click)="deleteData(productos.id)">Eliminar</button></td>
+         <td><button class="btn btn-primary" routerLink="edit/{{productos.id}}">Editar</button></td>
+       </tbody>
+     </table>
